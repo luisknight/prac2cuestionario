@@ -20,11 +20,8 @@
             <h1>Hola Bienvenido!!</h1>
             <p>¿Qué tan bueno eres en java?.. Tal vez sólo eres un Muggle</p>
             <p><a class="btn btn-primary btn-lg" href="exam.jsp" role="button">Entrar</a></p>
+            <p><a class="btn btn-primary btn-lg" href="PreguntasAll" role="button">hibernate</a></p>
           </div>
 
-        
-        
-        
-   
     </body>
 </html>
