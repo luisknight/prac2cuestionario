@@ -6,6 +6,7 @@
 package servlets;
 
 import daos.PreguntaDao;
+import daos.RespuestaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -16,6 +17,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pojos.Pregunta;
+import pojos.Respuesta;
 
 /**
  *
@@ -37,12 +40,23 @@ public class PreguntasAll extends HttpServlet {
         RequestDispatcher dispatcher;
         response.setContentType("text/html;charset=UTF-8");
         PreguntaDao pregDao = new PreguntaDao();
+        RespuestaDao respDao = new RespuestaDao();
         
         List preguntas = (List)pregDao.loadAll();
-        
+        List respuestas = (List)respDao.loadAll();
         request.setAttribute("preguntas", preguntas);
+        request.setAttribute("respuestas", respuestas);
         
-        dispatcher  = request.getRequestDispatcher("examen2.jsp");
+        for (int i = 0; i < preguntas.size(); i++) {
+              Pregunta preg = (Pregunta) preguntas.get(i);  
+                System.out.println("Pregunta:"+preg.getPregunta());
+        }
+        for (int j = 0; j < respuestas.size(); j++) {
+            Respuesta resp = (Respuesta) respuestas.get(j);  
+                System.out.println("Respuesta:"+resp.getRespuesta());
+        }
+        
+        dispatcher  = request.getRequestDispatcher("problems.jsp");
         dispatcher.forward(request,response);
     }
 

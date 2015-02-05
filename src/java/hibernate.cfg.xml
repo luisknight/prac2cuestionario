@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ExamenDB?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="connection.pool_size">1</property>
+    <property name="connection.pool_size">10</property>
     <property name="hibernate.connection.password"/>
     <mapping resource="pojos/Respuesta.hbm.xml"/>
     <mapping resource="pojos/Examen.hbm.xml"/>
