@@ -104,7 +104,7 @@
                                             %>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="<%=preg.getIdPregunta()%>" id="<%=resp.getIdRespuesta()%>" value="<%=resp.getRespuesta()%>" aria-label="option1">
+                                                    <input type="radio" name="<%=preg.getIdPregunta()%>" id="<%=resp.getIdRespuesta()%>" value="<%=resp.getIdRespuesta()%>" aria-label="option1">
                                                     <%=resp.getRespuesta()%>
                                                 </label>
                                             </div> 
