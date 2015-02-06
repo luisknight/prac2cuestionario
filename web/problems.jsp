@@ -19,6 +19,7 @@
         <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script> 
         <script src="bootstrap/js/goodTimer.js"></script> 
+       <script src="bootstrap/js/ion.sound.js"></script>
         <title>Preguntas</title>
     </head>
     <style>
@@ -102,7 +103,7 @@
                                             %>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="<%=preg.getIdPregunta()%>" id="<%=resp.getIdRespuesta()%>" value="<%=resp.getIdRespuesta()%>" aria-label="option1">
+                                                    <input type="radio" class="radio" name="<%=preg.getIdPregunta()%>" id="<%=resp.getIdRespuesta()%>" value="<%=resp.getIdRespuesta()%>" aria-label="option1">
                                                     <%=resp.getRespuesta()%>
                                                 </label>
                                             </div> 
@@ -130,11 +131,27 @@
         <script type="text/javascript">
             $('#timer').timer({
                 //duration: '5m30s',
-                duration: '1m15s',
+                duration: '20m15s',
                 callback: function () {
                     alert('Se acabo el Tiempo Padre!!');
                     jQuery("#btnSubmit").click(); //llega al tiempo limite y hace submit del form
                 }
+            });
+            
+             ion.sound({
+            sounds: [
+                {name: "pop_cork"},
+                {name: "button_tiny"},
+            ],
+            path: "bootstrap/sounds/",
+            preload: true,
+            volume: 1.0
+            });
+            $(".panel-heading").on("mouseover", function(){
+                ion.sound.play("pop_cork");
+            });
+            $(".radio").on("mouseover", function(){
+                ion.sound.play("button_tiny");
             });
         </script>
 
