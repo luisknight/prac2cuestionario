@@ -21,9 +21,6 @@
             <p>¿Qué tan bueno eres en java?.. Tal vez sólo eres un Muggle</p>
             <p><a class="btn btn-primary btn-lg" href="exam.jsp" role="button">Entrar</a></p>
             <p><a class="btn btn-primary btn-lg" href="PreguntasAll" role="button">hibernate</a></p>
-            <p><a class="btn btn-primary btn-lg" href="problems.jsp" role="button">prblems</a></p>
-
           </div>
-
     </body>
 </html>

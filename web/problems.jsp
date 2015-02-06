@@ -65,8 +65,6 @@
   </div><!-- /.container-fluid -->
 </nav>
         
-        
-        
 
         <div class="container" id="preguntas">
             <div class="row">
@@ -132,7 +130,7 @@
         <script type="text/javascript">
             $('#timer').timer({
                 //duration: '5m30s',
-                duration: '10m15s',
+                duration: '1m15s',
                 callback: function () {
                     alert('Se acabo el Tiempo Padre!!');
                     jQuery("#btnSubmit").click(); //llega al tiempo limite y hace submit del form

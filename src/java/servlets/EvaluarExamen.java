@@ -43,22 +43,49 @@ public class EvaluarExamen extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             int total=0;
+            double porcentaje = 0;
+            String color="";
+            String mensaje="";
             PreguntaDao preDao= new PreguntaDao();
             RespuestaDao resDao= new RespuestaDao();
             List<Pregunta> preguntas=(List<Pregunta>)preDao.loadAll();
             
             for (Iterator<Pregunta> it = preguntas.iterator(); it.hasNext();) {
                 Pregunta p = it.next();
+                String nonull=request.getParameter(p.getIdPregunta().toString());
+                if(nonull==null){
+                    nonull="0";
+                }
+                int seleccionada=Integer.parseInt(nonull);
                 
-                int seleccionada=Integer.parseInt(request.getParameter(p.getIdPregunta().toString()));
-                System.out.println(seleccionada);
                 if(seleccionada==Integer.parseInt(p.getRespuestaCorrecta())){
                     total++;
                 }
                 
             }
+            porcentaje = (total*100)/preguntas.size();
+            if(porcentaje>=60  && porcentaje<70){
+                color="warning";
+                mensaje="Apenas la libraste";
+            }
+            else if(porcentaje>=70 && porcentaje <80){
+                color="info";
+                mensaje="Bien hecho pero aún te falta";
+            }
+            else if(porcentaje>=80 && porcentaje <100){
+                color="success";
+                mensaje="Pues lo has hecho bastante bien nerdo";
+            }
+            else if(porcentaje<=50){
+                color="danger";
+                mensaje="Vaya! creo que un simio se coló en el sistema";
+            }
             
+        
         request.setAttribute("total", total);
+        request.setAttribute("porcentaje", porcentaje);
+        request.setAttribute("color", color);
+        request.setAttribute("mensaje", mensaje);
         dispatcher  = request.getRequestDispatcher("resultado.jsp");
         dispatcher.forward(request,response);
         }
