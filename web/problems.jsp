@@ -60,6 +60,9 @@
        
       </ul>
       <ul class="nav navbar-nav navbar-right">
+       
+        <li> <a class="navbar-brand"><div id="removeSounds"><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span></div></a></li>
+         <li> <a class="navbar-brand"><div id="activateSounds"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></div></a></li>
         <li> <a class="navbar-brand" href="#"><div id="timer"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -91,7 +94,7 @@
                                         <footer><%=preg.getDescripcion()%>  <cite title="Source Title"> Java</cite></footer>
                                     </blockquote>
 
-                                    <img src="imgQuestions/java_monedas_mini.jpg" class="img-responsive" alt="Responsive image">
+                                    <img src="<%=preg.getPathImagen()%>" class="img-responsive" alt="Responsive image">
                                     <div class="panel panel-danger">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Respuestas</h3>
@@ -131,7 +134,7 @@
         <script type="text/javascript">
             $('#timer').timer({
                 //duration: '5m30s',
-                duration: '20m15s',
+                duration: '15s',
                 callback: function () {
                     alert('Se acabo el Tiempo Padre!!');
                     jQuery("#btnSubmit").click(); //llega al tiempo limite y hace submit del form
@@ -152,6 +155,24 @@
             });
             $(".radio").on("mouseover", function(){
                 ion.sound.play("button_tiny");
+            });
+            $("#removeSounds").on("click", function(){
+                console.log("desactive los sonidos");
+                ion.sound.play("button_tiny", {
+                    volume: 0.0
+                });
+                ion.sound.play("pop_cork", {
+                    volume: 0.0
+                });
+            });
+            $("#activateSounds").on("click", function(){
+                console.log("active los sonidos");
+                ion.sound.play("button_tiny", {
+                    volume: 0.6
+                });
+                ion.sound.play("pop_cork", {
+                    volume: 0.6
+                });
             });
         </script>
 

@@ -66,19 +66,19 @@ public class EvaluarExamen extends HttpServlet {
             porcentaje = (total*100)/preguntas.size();
             if(porcentaje>=60  && porcentaje<70){
                 color="warning";
-                mensaje="Apenas la libraste";
+                mensaje="Apenas la libraste pero me das pena";
             }
             else if(porcentaje>=70 && porcentaje <80){
                 color="info";
                 mensaje="Bien hecho pero aún te falta";
             }
-            else if(porcentaje>=80 && porcentaje <100){
+            else if(porcentaje>=80 && porcentaje <=100){
                 color="success";
-                mensaje="Pues lo has hecho bastante bien nerdo";
+                mensaje="Pues lo has hecho bastante bien Genius";
             }
             else if(porcentaje<=50){
                 color="danger";
-                mensaje="Vaya! creo que un simio se coló en el sistema";
+                mensaje="Vaya! creo que un kindegardeano se coló en el sistema";
             }
             
         
